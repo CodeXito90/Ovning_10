@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+:root {
+  --primary-color: #00ffff;
+  --secondary-color: #ff4500;
+  --background-color: #0a0a0a;
+  --panel-color: #1a1a1a;
+  --text-color: #ffffff;
+  --border-color: #333333;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Share Tech Mono', monospace;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+.blackjack-bg {
+  background-image: url();
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blackjack-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(0,0,0,0.7) 0%, rgb(0, 0, 0) 100%);
+  z-index: 1;
+}
+
+.game-card {
+  background-color: var(--panel-color);
+  border: 2px solid var(--border-color);
+  border-radius: 15px;
+  color: var(--text-color);
+  font-family: 'Orbitron', sans-serif;
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 255, 255, 0.1) 0%,
+    rgba(0, 255, 255, 0) 50%,
+    rgba(255, 69, 0, 0.1) 100%
+  );
+  transform: rotate(30deg);
+  pointer-events: none;
+}
+
+.game-card h1 {
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.game-area {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hand {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.hand h2 {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.playing-card {
+  width: 100px;
+  margin-right: -50px;
+  transition: transform 0.3s ease;
+}
+
+.playing-card:hover {
+  transform: translateY(-10px);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btn-primary, .btn-secondary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--background-color);
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-primary::before, .btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+  transform: scale(1.05);
+}
+
+.btn-primary:hover::before, .btn-secondary:hover::before {
+  transform: rotate(30deg) translate(50%, 50%);
+}
+
+.message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-top: 1rem;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .game-card {
+    width: 95%;
+  }
+
+  .playing-card {
+    width: 80px;
+    margin-right: -40px;
+  }
+}
